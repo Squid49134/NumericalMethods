@@ -3,6 +3,15 @@ import numpy as np
 import matplotlib as mpt
 import matplotlib.pyplot as plt
 
+# INPUTS:
+ds = 1.0
+numRings = 1000
+diam = 10.0
+steps = round(numRings * diam * 6.2832 / ds) + 1
+traceX = np.zeros(steps);
+traceY = np.zeros(steps);
+traceX[0] = diam
+traceY[0] = 0
 
 # returns vectors following contours of a circle
 def getVector(x, y):
@@ -56,15 +65,7 @@ for x in range(-20, 21):
 plt.figure(figsize = (9, 9))
 plt.quiver(vectorX, vectorY, vectorU, vectorV, scale = 50)
 plt.axes().set_aspect('equal')  
-plt.tight_layout()  
-
-# set the step size, number of steps and the starting point
-ds = .1
-steps = round(628.32 / ds)
-traceX = np.zeros(steps);
-traceY = np.zeros(steps);
-traceX[0] = 10
-traceY[0] = 0
+plt.tight_layout()
 
 #----- First Order -----------------------------------------------------------#
 #for i in range (1, steps):
